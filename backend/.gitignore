@@ -1,0 +1,13 @@
+# Virtual Environment
+venv/
+
+# Production Environmental Variables
+.env
+
+# Development Databases
+*.db
+*.sqlite3
+
+# Pycaches
+*.pyc
+__pycache__/
