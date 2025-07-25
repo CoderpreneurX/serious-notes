@@ -11,3 +11,6 @@ venv/
 # Pycaches
 *.pyc
 __pycache__/
+
+# Static Files
+staticfiles/
