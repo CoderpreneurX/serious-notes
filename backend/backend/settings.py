@@ -125,7 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
+    "authentication.backends.CustomAuthenticationBackend",
 ]
 
 
@@ -193,11 +193,14 @@ SITE_ID = 1
 
 FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
 
-ACCOUNT_LOGIN_METHODS = {"email", "username"}
+ACCOUNT_LOGIN_METHODS = {"username"}
 ACCOUNT_SIGNUP_FIELDS = ["email*", "username*", "password1*", "password2*"]
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_ADAPTER = "authentication.adapters.CustomAccountAdapter"
+ACCOUNT_UNIQUE_EMAIL = False
+
+SOCIALACCOUNT_ADAPTER = "authentication.adapters.CustomSocialAccountAdapter"
 
 # Email Config
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
