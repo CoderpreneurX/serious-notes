@@ -1,5 +1,6 @@
 from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
 from allauth.socialaccount.providers.github.views import GitHubOAuth2Adapter
+from allauth.socialaccount.models import SocialApp
 from dj_rest_auth.registration.views import SocialLoginView
 from .client import ScopedOAuth2Client
 
@@ -12,5 +13,5 @@ class GoogleLogin(SocialLoginView):
 
 class GitHubLogin(SocialLoginView):
     adapter_class = GitHubOAuth2Adapter
-    callback_url = "http://localhost:8000/accounts/github/login/callback/"
+    callback_url = SocialApp.objects.get(provider="github").settings["redirect_url"]
     client_class = ScopedOAuth2Client
