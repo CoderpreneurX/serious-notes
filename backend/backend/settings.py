@@ -30,12 +30,19 @@ SECRET_KEY = os.getenv(
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if os.getenv("DEBUG", "True") == "True" else False
+DEBUG = os.getenv("DEBUG", "False").strip().lower() == "true"
 
 ALLOWED_HOSTS = [
-    os.getenv("BACKEND_DOMAIN", "localhost"),
+    os.getenv("BACKEND_HOST", "localhost"),
 ]
 
+# CORS
+CORS_ALLOWED_ORIGINS = [
+    os.getenv("FRONTEND_URL", "http://localhost:5173"),
+]
+
+CORS_ALLOW_ALL_ORIGINS = DEBUG
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -153,14 +160,6 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-# CORS
-CORS_ALLOWED_ORIGINS = [
-    os.getenv("FRONTEND_DOMAIN", "http://localhost:5173"),
-]
-
-CORS_ALLOW_ALL_ORIGINS = os.getenv("DEBUG", "True") is True
-CORS_ALLOW_CREDENTIALS = True
 
 # REST Framework
 REST_FRAMEWORK = {
