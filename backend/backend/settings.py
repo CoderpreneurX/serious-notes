@@ -48,6 +48,8 @@ CORS_ALLOW_CREDENTIALS = True
 
 INSTALLED_APPS = [
     "corsheaders",
+    "notes",
+    "ckeditor",
     "authentication",
     "rest_framework",
     "rest_framework.authtoken",
