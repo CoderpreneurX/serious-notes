@@ -5,7 +5,6 @@ import { API_ENDPOINTS, INTERNAL_SERVER_ERROR_MESSAGE } from "@/constants/api";
 import { api } from "@/lib/api";
 import type { SignUpPayload } from "@/schema/auth";
 import { useToastStore } from "@/store/toastStore";
-import ColorModeSelect from "@/theme/ColorModeSelect";
 import type { SignUpErrorResponse, SignUpSuccessResponse } from "@/types/auth";
 import { Typography } from "@mui/material";
 import { useState } from "react";
@@ -31,7 +30,6 @@ export default function SignUp() {
   };
   return (
     <SignInContainer direction="column" justifyContent="space-between">
-      <ColorModeSelect sx={{ position: "fixed", top: "1rem", right: "1rem" }} />
       <Card variant="outlined" sx={{ overflow: "clip" }}>
         <Typography
           component="h1"
