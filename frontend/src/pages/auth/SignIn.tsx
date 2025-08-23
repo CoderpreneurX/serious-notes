@@ -1,5 +1,4 @@
 import React from "react";
-import ColorModeSelect from "../../theme/ColorModeSelect";
 import SignInContainer from "../../components/auth/AuthContainer";
 import Card from "../../components/ui/Card";
 import SignInForm from "@/components/auth/SignInForm";
@@ -37,7 +36,6 @@ const SignInPage: React.FC = () => {
   };
   return (
     <SignInContainer direction="column" justifyContent="space-between">
-      <ColorModeSelect sx={{ position: "fixed", top: "1rem", right: "1rem" }} />
       <Card variant="outlined">
         <Typography
           component="h1"
