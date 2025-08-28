@@ -1,5 +1,5 @@
-import { Typography } from "@mui/material";
+import RichTextEditor from "@/components/rich-text-editor";
 
 export default function Dashboard() {
-  return <Typography variant="h4">Dashboard</Typography>;
+  return <RichTextEditor />;
 }
