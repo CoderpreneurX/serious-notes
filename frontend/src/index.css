@@ -1,0 +1,41 @@
+@import "highlight.js/styles/github-dark.css";
+
+code {
+  background-color: #f5f5f5;
+  color: #c7254e;
+  font-family: "Fira Code", monospace;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+pre {
+  background: #1e1e1e; /* dark theme like VSCode */
+  color: #d4d4d4;
+  font-family: "Fira Code", monospace;
+  padding: 12px;
+  border-radius: 6px;
+  margin: 1em 0;
+  overflow-x: auto;
+}
+
+pre code {
+  background: transparent; /* prevent double background */
+  color: inherit;
+  padding: 0;
+  font-size: 0.9em;
+}
+
+.ProseMirror-focused {
+  outline: none;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #aaa;
+  pointer-events: none;
+  height: 0;
+  font-size: large;
+  text-align: center;
+}
