@@ -1,4 +1,4 @@
-import { Box, Container, Drawer, useMediaQuery } from "@mui/material";
+import { Box, Container, Drawer, useMediaQuery, useTheme } from "@mui/material";
 import AppLogo from "../AppLogo";
 import ToggleSidebarButton from "./ToggleSidebarButton";
 import { useSidebarStore } from "@/store/sidebarStore";
@@ -6,14 +6,15 @@ import { useSidebarStore } from "@/store/sidebarStore";
 export const drawerWidth = 248;
 
 export default function Sidebar() {
-  const isDesktop = useMediaQuery("(min-width:1024px)");
+  const theme = useTheme();
+  const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
   const isOpen = useSidebarStore((state) => state.isOpen);
   const toggleSidebar = useSidebarStore((state) => state.toggleSidebar);
   return (
     <Drawer
       open={isOpen}
       onClose={toggleSidebar}
-      variant={isDesktop ? "permanent" : "temporary"}
+      variant={isMdUp ? "permanent" : "temporary"}
       sx={{ width: drawerWidth, bgcolor: "white" }}
     >
       <Container
@@ -23,7 +24,7 @@ export default function Sidebar() {
       >
         <Box sx={{ py: 1.5, display: "flex", alignItems: "center" }}>
           <AppLogo />
-          {!isDesktop && <ToggleSidebarButton />}
+          {!isMdUp && <ToggleSidebarButton />}
         </Box>
       </Container>
     </Drawer>
