@@ -34,7 +34,7 @@ function MainHeader() {
   return (
     <>
       <AppBar
-        position="static"
+        position="sticky"
         sx={{
           bgcolor: "white",
           boxShadow: "none",
