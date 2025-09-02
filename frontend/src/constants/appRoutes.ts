@@ -1,5 +1,5 @@
 const APP_ROUTES = {
-  DASHBOARD: "/",
+  NOTES: "/notes",
   AUTH: {
     SIGN_IN: "/auth/sign-in",
     SIGN_UP: "/auth/sign-up",
