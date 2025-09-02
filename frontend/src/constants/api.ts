@@ -13,6 +13,8 @@ export const API_ENDPOINTS = {
     RESEND_VERIFICATION_EMAIL: "/api/auth/registration/resend-email/",
     VERIFY_EMAIL: "/api/auth/registration/verify-email/",
 
+    REFRESH_ACCESS_TOKEN: "/api/auth/token/refresh/",
+
     SIGN_IN: "/api/auth/login/",
     GOOGLE_SIGN_IN: "/api/auth/google/",
     GITHUB_SIGN_IN: "/api/auth/github/",
