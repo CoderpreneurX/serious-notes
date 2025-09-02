@@ -1,12 +1,16 @@
 import { useEffect } from "react";
 import { useAuthStore } from "./store/authStore";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import { RequireAuth, RequireGuest } from "./components/ProtectedRoutes";
 import SignIn from "./pages/auth/SignIn";
 import APP_ROUTES from "./constants/appRoutes";
 import GitHubSignIn from "./pages/auth/GitHubSignIn";
 import SignUp from "./pages/auth/SignUp";
-import Dashboard from "./pages/dashboard";
+import NotesPage from "./pages/notes";
 
 export default function AppRouter() {
   const fetchUser = useAuthStore((state) => state.fetchUser);
@@ -16,6 +20,7 @@ export default function AppRouter() {
   }, [fetchUser]);
 
   const router = createBrowserRouter([
+    { path: "/", element: <Navigate to={APP_ROUTES.NOTES} replace /> },
     {
       path: APP_ROUTES.AUTH.SIGN_IN,
       element: (
@@ -41,10 +46,10 @@ export default function AppRouter() {
       ),
     },
     {
-      path: APP_ROUTES.DASHBOARD,
+      path: APP_ROUTES.NOTES,
       element: (
         <RequireAuth>
-          <Dashboard />
+          <NotesPage />
         </RequireAuth>
       ),
     },

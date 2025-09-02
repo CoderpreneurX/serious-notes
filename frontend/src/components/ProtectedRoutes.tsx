@@ -24,6 +24,6 @@ export function RequireGuest({ children }: { children: ReactNode }) {
   return !user ? (
     <AuthLayout>{children}</AuthLayout>
   ) : (
-    <Navigate to={APP_ROUTES.DASHBOARD} replace />
+    <Navigate to={APP_ROUTES.NOTES} replace />
   );
 }

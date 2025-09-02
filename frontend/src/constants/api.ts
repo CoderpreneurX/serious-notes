@@ -26,4 +26,8 @@ export const API_ENDPOINTS = {
     GET_PROFILE: "/api/auth/user/",
     UPDATE_PROFILE: "/api/auth/user/",
   },
+
+  NOTES: {
+    GET_NOTES: "/api/notes/",
+  },
 };
